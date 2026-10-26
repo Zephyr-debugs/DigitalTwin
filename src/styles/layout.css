@@ -1,0 +1,142 @@
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--inspector-w);
+  grid-template-rows: var(--topbar-h) minmax(0, 1fr) var(--dock-h);
+  grid-template-areas:
+    'top top'
+    'stage inspector'
+    'dock dock';
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+}
+
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  padding: 0 var(--s3);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--panel);
+  min-width: 0;
+}
+
+.stage {
+  grid-area: stage;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.stage canvas {
+  display: block;
+  touch-action: none;
+}
+
+.inspector {
+  grid-area: inspector;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-left: 1px solid var(--hairline);
+  background: var(--panel);
+}
+
+.dock {
+  grid-area: dock;
+  display: grid;
+  grid-template-columns: 372px minmax(0, 1fr) 388px;
+  min-height: 0;
+  border-top: 1px solid var(--hairline);
+  background: var(--panel);
+}
+
+.dock > section {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.dock > section + section {
+  border-left: 1px solid var(--hairline);
+}
+
+/* 1366 x 768 is the design floor; below it panels narrow, then stack. */
+@media (max-width: 1365px) {
+  :root {
+    --inspector-w: 304px;
+  }
+  .dock {
+    grid-template-columns: 340px minmax(0, 1fr) 340px;
+  }
+}
+
+@media (max-height: 760px) {
+  :root {
+    --dock-h: 212px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .shell {
+    height: auto;
+    min-height: 100vh;
+    grid-template-rows: var(--topbar-h) minmax(420px, 62vh) auto;
+  }
+  .dock {
+    grid-template-columns: 340px minmax(0, 1fr);
+    grid-template-rows: var(--dock-h) var(--dock-h);
+  }
+  .dock > section:nth-child(3) {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .topbar {
+    gap: var(--s4);
+  }
+  .topbar .brand-sub {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(360px, 56vh) auto auto;
+    grid-template-areas:
+      'top'
+      'stage'
+      'inspector'
+      'dock';
+  }
+  .topbar {
+    flex-wrap: wrap;
+    row-gap: var(--s1);
+    padding: var(--s2) var(--s3);
+  }
+  .inspector {
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+    max-height: 70vh;
+  }
+  .dock {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto var(--dock-h) var(--dock-h);
+  }
+  .dock > section + section {
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .dock > section:nth-child(3) {
+    grid-column: auto;
+  }
+  .topbar-clock {
+    margin-left: 0;
+  }
+}

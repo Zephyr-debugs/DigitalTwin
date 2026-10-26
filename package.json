@@ -1,0 +1,32 @@
+{
+  "name": "worker-bot-twin",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "optimize": "node scripts/optimize-model.mjs",
+    "optimize:1k": "node scripts/optimize-model.mjs --size 1024",
+    "make-test-rig": "node scripts/make-test-rig.mjs",
+    "telemetry:demo": "node scripts/ws-telemetry-demo.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "@fontsource/ibm-plex-sans": "^5.1.0",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.1.1",
+    "@gltf-transform/extensions": "^4.1.1",
+    "@gltf-transform/functions": "^4.1.1",
+    "@types/three": "0.170.0",
+    "meshoptimizer": "^0.22.0",
+    "sharp": "^0.33.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "ws": "^8.22.0"
+  }
+}

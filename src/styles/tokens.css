@@ -1,0 +1,58 @@
+:root {
+  /* Surfaces. Warm graphite, one step apart. */
+  --bg: #111214;
+  --panel: #17191c;
+  --panel-raised: #1d1f23;
+  --hover: #202327;
+  --hairline: #2a2d31;
+  --hairline-strong: #383b40;
+
+  /* Text */
+  --text: #e6e4df;
+  --muted: #8a8d91;
+  --faint: #5d6064;
+  --marker: #9a9c9f;
+
+  /* State. Fault is a cooler, pinker red than the robot's own so the two never read as the same thing. */
+  --ok: #4f9d69;
+  --warn: #d19a3a;
+  --fault: #e5554a;
+
+  /* Accent is replaced at runtime with the red sampled from the model's materials. */
+  --accent: #c2362b;
+  --accent-text: #e2675d;
+  --accent-wash: rgb(194 54 43 / 0.14);
+
+  --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --fs-label: 10.5px;
+  --fs-small: 11px;
+  --fs-body: 12px;
+  --fs-title: 13px;
+  --fs-display: 15px;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+
+  --r1: 2px;
+  --r2: 3px;
+  --r3: 4px;
+
+  --topbar-h: 40px;
+  --inspector-w: 336px;
+  --dock-h: 236px;
+  --control-h: 24px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 0ms;
+  }
+}
